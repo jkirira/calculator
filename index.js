@@ -1,3 +1,6 @@
+const add = require("./add.js")
+
+
 const calcButtons = document.getElementById('calc-main');
 const workingArea = document.getElementById('workingArea')
 const buffer = document.getElementById('buffer')
@@ -5,56 +8,52 @@ const buffer = document.getElementById('buffer')
 previousValue = ''
 
 calcButtons.addEventListener('click', (e) => {
-    // console.log(e.target.getAttribute("id"));
-    dispatch(e.target.getAttribute("id"));
+    dispatch(e.target.getAttribute("data-type"));
 })
 
 function dispatch(val){
-    if(val == null){
-        return;
-    }
-    if(val == undefined){
+
+    if(val == 'number'){
+        input(val);
         return;
     }
 
-    if( !isNaN(val) ){
-        input(val);
-        return;
-    } else {
-        switch(val){
-            case "answer":
-                calculate();
-                break;
-            case "clear":
-                clear();
-                break;
-            case "backspace":
-                backspace();
-                break;
-            case "plus":
-                input("+");
-                add();
-                break;
-            case "minus":
-                input("-");
-                minus();
-                break;
-            case "divide":
-                input("/");
-                divide();
-                break;
-            case "multiply":
-                input("*");
-                multiply();
-                break;
-            case "point":
-                input(".")
-                break;
-            case "square":
-                input("**")
-                break;
-        }
+    switch(val){
+        case "answer":
+            calculate();
+            break;
+        case "clear":
+            clear();
+            break;
+        case "backspace":
+            backspace();
+            break;
+        case "plus":
+            input("+");
+            add();
+            break;
+        case "minus":
+            input("-");
+            minus();
+            break;
+        case "divide":
+            input("/");
+            divide();
+            break;
+        case "multiply":
+            input("*");
+            multiply();
+            break;
+        case "point":
+            input(".")
+            break;
+        case "square":
+            input("**")
+            break;
+        default:
+            return;
     }
+    // }
 }
 
 
@@ -127,16 +126,11 @@ function calculate(){
     previousValue = output_val
 }
 
-function add(x, y){ return x+y }
+
 function minus(x, y){ return x-y }
 function divide(x, y){ return x/y }
 function multiply(x, y){ return x*y}
 
-function percent(){}
-function point(){}
-function answer(){}
+module.exports = add;
 
-
-
-
-//go through array
+//  minus, divide, multiply};

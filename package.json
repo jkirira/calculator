@@ -1,0 +1,27 @@
+{
+  "type": "module",
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "sass": "^1.48.0"
+  },
+  "devDependencies": {
+    "jest": "^27.4.7"
+  },
+  "scripts": {
+    "test": "jest",
+    "sass": "sass --watch index.scss output.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkirira/calculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkirira/calculator/issues"
+  },
+  "homepage": "https://github.com/jkirira/calculator#readme"
+}
